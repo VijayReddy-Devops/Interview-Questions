@@ -1,0 +1,143 @@
+**Technical Questions :**
+
+
+
+1\) **Minikube** is mainly used to create a Kubernetes cluster on our local system (Laptop/Desktop).
+
+\- It creates a Kubernetes cluster locally.
+
+\- By default, it runs a single-node cluster.
+
+\- The single node acts as both the Master (Control Plane) and Worker Node.
+
+\- We can deploy applications using Pods and Deployments.
+
+\- We can expose applications using Kubernetes Services.
+
+\- We can practice Kubernetes objects like ConfigMaps, Secrets, Ingress, PVC, etc.
+
+\- It supports different drivers like Docker, VirtualBox and others.
+
+\- It is used for learning,testing and development \& it is a platform dependent.
+
+
+
+2\) **Kops** (Kubernetes Operations) is a tool used to create, manage, upgrade and delete Kubernetes clusters on cloud platforms like AWS.
+
+&#x20;  It manage Control Plane and Worker Nodes
+
+&#x20;  We can store cluster information in s3 bucket.
+
+&#x20;  If we need to create a server we need to I am role permission to server
+
+&#x20;  It manages Kubernetes cluster upgrades.
+
+&#x20;  It supports cluster scaling
+
+
+
+&#x20;  **Lables** : Labels are key-value pairs attached to Kubernetes objects like Pods, Deployments and Nodes to identify and organize them
+
+&#x20;  **Lable Selector** : Label Selector is used to select Kubernetes resources based on their labels.It consist equality based selector(single lables) and set based selector(2 lables)
+
+&#x20;  **Node Selector**: It is used to schedule Pods on specific nodes based on node labels.
+
+
+
+3\) **Kubernetes Services** : A Kubernetes Service is an abstraction that provides a stable IP address and DNS name to access a group of Pods. It enables communication between different applications and exposes applications inside or outside the Kubernetes cluster.
+
+
+
+**Types of Kubernetes Services :**
+
+
+
+&#x20;**ClusterIP** is the default Service type in Kubernetes. It is used to expose an application internally within the Kubernetes cluster, allowing communication between different Pods and Services.
+
+&#x20; **NodePort** is a Service type in Kubernetes that exposes an application outside the cluster using a specific port on each node. We can access the application using the Node IP address and NodePort. The default node port range is 30k to 32767.
+
+&#x20;**LoadBalance**r is a Service type in Kubernetes that exposes an application externally using a cloud provider's load balancer. It provides an external IP address or DNS name to access the application from outside the cluster.
+
+
+
+| ClusterIP | Exposes applications internally within the cluster. |
+
+| NodePort | Exposes applications externally using Node IP and NodePort. |
+
+| LoadBalancer | Exposes applications externally using a cloud load balancer. |
+
+
+
+4\)**POD** : A Pod is the smallest deployable unit in Kubernetes. It can contain one or more containers that share the same network and storage resources.
+
+&#x20;**ReplicaSe**t : ReplicaSet is a Kubernetes cluster  maintains the required number of Pods and replaces failed Pods automatically. If any Pod fails or gets deleted, ReplicaSet  automatically creates a new Pod to maintain the desired replica count.
+
+**Deployment**: A Deployment is a Kubernetes controller used to manage ReplicaSets and deploy applications. It provides features like rolling updates, rollbacks, scaling and application version management.
+
+**Daemon Set:** Daemon set is a k8s cluster \& it will create new pod on each worker node. whenever a new node is added it automatically will create a agent pod on that node.
+            We use DaemonSet to run monitoring and logging agents on worker nodes to collect CPU utilization, memory utilization and application logs.
+
+5) **NameSpace** : A Namespace is used to separate Kubernetes resources within a single cluster. we can create separate namespaces for Development, Testing and Production environments. we can create separate resources such as Pods, Services, ConfigMaps, Secrets and Deployments.
+
+6) **k8s Volumes** : A Kubernetes Volume is used to store data inside a Pod and share data between containers. It helps to preserve data even if a container restarts.
+   **Types** **Of** **Volumes** : Empty Dir, Host path, Pv and Pvc
+   **Empty Dir** : It Creates temporary storage inside a Pod.
+   **Host Path/Server** : host Path is used to mount a directory or file from the worker node into a Pod.
+
+
+   **Persistent Volume** : Pv is a storage resource in a Kubernetes cluster. It provides persistent storage to applications, and its lifecycle is independent of the Pod.
+   **Persistance Volume Claim** :A PVC is a request storage in Kubernetes. It allows an application to request the required storage capacity and use that storage through a PV.
+   **Example** : Suppose my application requires 10GB of storage. I create a PVC requesting 10GB, and Kubernetes finds a suitable PV and it binds t0 PVC.
+
+ **Real-Time Example for PV \& PVC**
+
+Suppose we deploy a MySQL database inside Kubernetes.
+
+\- We create a Persistent Volume for storage.
+
+\- We create a PVC to request storage.
+
+\- We attach the PVC to the MySQL Pod.
+
+\- MySQL stores database files in that volume.
+
+\- If the Pod gets deleted and recreated, the data will be available through the same persistent storage.
+
+7)**Config Map** : CM is used to store application configuration data separately from the application code. Examples: Database URL, application port and environment name
+  **Secrets** : A Secret is a used to store sensitive information such as passwords, usernames, API tokens and certificates.
+
+8) **Resource Quota** : RQ is used to manage and restrict the total resource consumption within a namespace. It helps to control the CPU, memory, storage and k8s objects such as Pods, Services and PVCs. We can configure separate Resource Quotas for Dev, Test and Prod namespaces.
+
+9) **StatefulSet** is a Kubernetes controller used to manage stateful applications. It provides stable Pod names, stable network identities and persistent storage for each Pod.  
+
+&#x20;  It is mainly used for database applications. If a Pod is deleted, Stateful Set recreates it with the same identity.
+
+10) **Probes(Health Check)** : Probes are health checks in Kubernetes used to monitor the health and availability of containers. They help Kubernetes identify whether an application is running properly, ready to receive traffic, or needs to be restarted.
+
+**Types of Probes :** 
+
+**Liveness Probe :** LP will check checks whether the application inside the container is running properly or not. If the health check fails, Kubernetes restarts the container.
+**Readiness Probe :** RP will checks whether the application is ready to receive traffic.If the health check fails, Kubernetes removes the Pod from Service endpoints until it becomes ready again.
+**Start Up Probe :** Startup Probe checks whether the application inside the container has started successfully. It is mainly used for applications that take more time to start. Once the Startup Probe succeeds, Liveness and Readiness Probes start working.
+
+11) **K8S Ingress** : Ingress is a Kubernetes resource used to expose applications outside the cluster. It manages incoming HTTP and HTTPS traffic and routes requests to different Services based on domain names and URL paths.
+ 
+Suppose we have two applications:
+
+\- www.example.com → Frontend Service.
+
+\- www.example.com/api → Backend Service.
+
+Using Ingress, we can route traffic to both applications through a single entry point
+
+**Ingress Controller** is used to manage incoming external traffic and route it to the correct Kubernetes Service based on Ingress rules.
+
+12) **Taint** : Taints are applied to Kubernetes nodes to restrict Pods from scheduling on them. If we apply a taint on Worker Node 1, normal Pods cannot run on that node.
+    **Toleration** : If a node has a taint, we add a matching toleration to the Pod so it can run on that node. It will allow Pods to tolerate node taints.
+    **Node** **Affinity** : Node Affinity is used to schedule Pods on specific nodes based on node labels. If I want to run a database Pod only on WorkerNode 1, I can use Node Affinity
+
+
+
+13\) **RBAC :** 
+
+

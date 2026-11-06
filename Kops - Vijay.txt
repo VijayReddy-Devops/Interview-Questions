@@ -1,0 +1,90 @@
+kops installation 
+
+1)Create instance Kops and t3.micro and ssh sg and 28gb ebs 
+
+2)installation of kubectl (https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux)
+
+.curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+ give permission to kubectl : chmod +x kubectl
+ move to default path : mv kubectl /usr/local/bin
+ check version : kubectl version
+
+3)Installation of KOPS (https://kops.sigs.k8s.io/getting_started/install/)
+ 
+curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f /kops-linux-amd64
+chmod +x kops
+sudo mv kops /usr/local/bin/kops
+kops version
+
+NOTE : 
+we need to cluster now, cluster means group of servers.
+for example hostel building is cluster and inside hostels room is there and rooms is the servers so owner room is manager node and student room is worker node 
+cluster lopala servers create cheyyali so manam aws cloud loo server create cheyyali antey iam role permission evvali ec2 instance ki 
+so mana cluster information store chaysukovali antey s3 bucket use chestham
+
+4) To create a bucket 
+
+aws s3 mb s3://vijay.reddy.com ( aws cloud loo s3 bucket loo mb means make bucket manam bucket ni create chesthunnam unique ga)
+make_bucket: Vijay.reddy.com(it will show bucket created name)
+to check bucket list : aws s3 ls
+mana kops information ni bucket store chaysukovali antey we can use 
+export KOPS_STATE_STORE=s3://vijay.reddy.com
+
+5) To create a cluster(group of servers)
+kops create cluster --name vijay.k8s.local --zones=us-east-2a,us-east-2b --master-size c7i-flex.large --master-count 1 --master-volume-size 30 --node-size t3.micro --node-count 2 --node-volume-size 20 --image=ami-0f5fcdfbd140e4ab7(ubuntu)
+
+
+Cluster Name: vijay.k8s.local
+Master: c7i-flex.large, 30 GB
+Worker-1: t3.micro, 20 GB
+Worker-2: t3.micro, 20 GB
+Zones: us-east-2a, us-east-2b
+Master Count: 1
+Worker Count: 2
+
+6) Update the cluster(cluster create ayyaka cluster ni update cheyyali)
+
+   kops update cluster --name vijay.k8s.local --yes
+   cluster create ayyindha laydha check cheyyadaniki : kubectl get nodes (worker node reflect avvadaniki it will take to reflect around 10 to 15min) once cluster create ayyaka      pod ni create cheyyali
+
+7) To create a pod 
+   vim pod.yml
+---
+apiversion: v1
+kind: Pod
+kind means object 
+pod information pass cheyyali antey metadata use chestham
+metadata
+   name: pod-1/pod-2
+   labels:
+     app: swiggy
+     client: tcs
+specification means pod lopala container vuntundhi
+spec:
+  containers:
+    - name: mycont
+      image: nginx
+      ports:
+        - containerPort: 80
+
+8) kubectl create -f pod.yml (pod create avvuthundhi)
+9)kubectl get po -o wide (Yenni pods available loo vunnayoo check cheyyochu and pod full information chudochu)
+   NAME     READY   STATUS    RESTARTS   AGE   IP             NODE(instance id)
+   pod-1    1/1     Running   0          60s   100.96.2.245   i-0a583a94af26739e7 (worker -1)
+   pod-2    1/1     Running   0          5s    100.96.1.130   i-006e1924f9b84316d (worker -2)
+10) okka particular pod loo create cheyyali antey schedular decide chesthundhi and schedular kakunda node selector tho kuda pod create cheyyochu means
+   When we create a Pod in Kubernetes, the Scheduler automatically decides which node the Pod should run on based on resource availability and scheduling constraints.
+
+Apart from automatic scheduling, we can also use Node Selector to specify a particular node where the Pod should be scheduled.
+Technical clarification:
+- Scheduler: Automatically selects a suitable node for the Pod.
+- Node Selector: Allows us to specify a node using labels.
+Example: If we want to run a Pod only on worker-1, we can use nodeSelector in the Pod YAML file.
+
+11) To delete the cluster : 1)export KOPS_STATE_STORE=s3://vijay.reddy.com 2)kops delete cluster --name vijay.k8s.local --yes
+
+
+
+
+
