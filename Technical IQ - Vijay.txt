@@ -1,0 +1,24 @@
+Technical Questions :
+
+1) Minikube is mainly used to create a Kubernetes cluster on our local system (Laptop/Desktop).
+- It creates a Kubernetes cluster locally.
+- By default, it runs a single-node cluster.
+- The single node acts as both the Master (Control Plane) and Worker Node.
+- We can deploy applications using Pods and Deployments.
+- We can expose applications using Kubernetes Services.
+- We can practice Kubernetes objects like ConfigMaps, Secrets, Ingress, PVC, etc.
+- It supports different drivers like Docker, VirtualBox and others.
+- It is used for learning,testing and development & it is a platform dependentL
+
+2) Kops (Kubernetes Operations) is a tool used to create, manage, upgrade and delete Kubernetes clusters on cloud platforms like AWS.
+   It manage Control Plane and Worker Nodes
+   We can store cluster information in s3 bucket.
+   If we need to create a server we need to I am role permission to server
+   It manages Kubernetes cluster upgrades.
+   It supports cluster scaling
+
+3) Lables : Labels are key-value pairs attached to Kubernetes objects like Pods, Deployments and Nodes to identify and organize them
+   Lable Selector : Label Selector is used to select Kubernetes resources based on their labels
+   Node Selector: It is used to schedule Pods on specific nodes based on node labels.
+
+4) 
