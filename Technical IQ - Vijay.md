@@ -138,6 +138,6 @@ Using Ingress, we can route traffic to both applications through a single entry 
 
 
 
-13\) **RBAC :** 
+
 
 
