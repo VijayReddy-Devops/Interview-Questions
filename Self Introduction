@@ -1,0 +1,15 @@
+Hi, my name is Vijay Reddy. I'm currently working at Tata Consultancy Services (TCS) as a System Engineer, with nearly 5 years of experience in DevOps engineering.
+
+I have hands-on experience in designing and implementing CI/CD pipelines, containerizing applications, and managing cloud infrastructure.
+
+My core technical skills include Jenkins, Docker, Kubernetes, Terraform, and AWS. I have worked with AWS services such as EC2, VPC, IAM, S3, ECR, EKS, and Load Balancers.
+
+In my current project, I work on automating build and deployment processes using Jenkins integrated with GitHub. We use Maven for application builds, SonarQube for code quality analysis, and Docker to containerize applications. We push Docker images to Amazon ECR and deploy microservices on AWS EKS using Kubernetes manifests and Helm charts.
+
+I also have experience with Infrastructure as Code using Terraform and implementing DevSecOps practices using tools like Trivy, SonarQube, and OWASP ZAP to identify security vulnerabilities and improve application security.
+
+Apart from implementation, I work closely with development, QA, and infrastructure teams to troubleshoot pipeline failures, resolve deployment issues, automate repetitive tasks, and improve overall deployment efficiency.
+
+I'm passionate about automation, cloud technologies, and continuously improving the reliability and security of application delivery.
+
+That's a brief introduction about me. Thank you.
