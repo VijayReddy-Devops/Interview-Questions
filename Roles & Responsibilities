@@ -1,0 +1,15 @@
+In my current project, my main responsibility is to manage and maintain the DevOps infrastructure and automate the application deployment process.
+
+I am responsible for managing AWS services like EC2, VPC, S3, IAM, ECR, and EKS.
+
+I work on CI/CD pipeline development and maintenance using Jenkins and GitHub to automate application build and deployment processes.
+
+I handle application containerization using Docker and deploy applications into Kubernetes clusters using Amazon EKS and Helm.
+
+I am also responsible for infrastructure automation using Terraform and configuration management using Ansible.
+
+I integrate security scanning tools like Trivy and OWASP Dependency-Check to identify vulnerabilities.
+
+I take care of application and infrastructure monitoring using Prometheus, Grafana, and CloudWatch.
+
+Apart from this, I handle production support, troubleshoot deployment issues, and coordinate with development and QA teams to ensure smooth application releases.
