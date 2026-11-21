@@ -21,3 +21,22 @@ I monitor application performance, CPU, memory, and infrastructure health using 
 If any issue occurs, I troubleshoot pipeline failures, pod issues, application errors, and production deployment problems.
 
 Finally, I coordinate with development and QA teams regarding deployment status and upcoming releases.
+
+
+version : 02
+On a daily basis, I check Jenkins pipeline status and troubleshoot build or deployment failures.
+
+I work with developers to understand code changes and deployment requirements.
+
+I maintain CI/CD pipelines, build Docker images, and push them to Amazon ECR.
+
+I deploy applications into EKS using Kubernetes and Helm.
+
+I use Terraform for infrastructure changes and Ansible for configuration management.
+
+I check security scan reports using Trivy and OWASP.
+
+I monitor applications and infrastructure using Prometheus, Grafana, and CloudWatch.
+
+If any production issue occurs, I troubleshoot it and coordinate with development and QA teams to ensure smooth deployments.
+
