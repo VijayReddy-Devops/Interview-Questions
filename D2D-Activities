@@ -1,0 +1,23 @@
+On a daily basis, I start by checking the Jenkins pipeline status and reviewing any failed builds or deployments.
+
+I coordinate with developers to understand new code changes and deployment requirements.
+
+I work on Jenkins pipelines to automate the build, testing, and deployment processes.
+
+I build Docker images, tag them, and push them to Amazon ECR.
+
+I deploy applications into EKS clusters using Kubernetes manifests and Helm charts.
+
+I check pod status, deployment status, services, and application health using kubectl commands.
+
+I work on Terraform configurations whenever infrastructure changes or new resources are required.
+
+I use Ansible playbooks for configuration management and automation.
+
+I check Trivy and OWASP scan reports and work on fixing identified vulnerabilities.
+
+I monitor application performance, CPU, memory, and infrastructure health using Prometheus, Grafana, and CloudWatch.
+
+If any issue occurs, I troubleshoot pipeline failures, pod issues, application errors, and production deployment problems.
+
+Finally, I coordinate with development and QA teams regarding deployment status and upcoming releases.
