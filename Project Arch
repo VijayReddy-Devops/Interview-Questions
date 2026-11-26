@@ -1,0 +1,24 @@
+Docker 
+First, the user accesses the application through a web browser using the application URL. Route 53 resolves the domain name and directs traffic to the Application Load Balancer (ALB). Before reaching the ALB, AWS WAF filters incoming requests and protects the application from common web attacks.
+
+The ALB forwards incoming requests to the appropriate target group based on the configured routing rules. It distributes traffic across multiple healthy frontend and backend instances to improve availability and performance.
+
+Whenever a user sends a request through the frontend, the request is forwarded to the backend through the ALB. The backend receives the request, processes it and interacts with the MySQL database to retrieve or update the required data.
+
+After processing the request, the database sends the response to the backend. The backend then sends the response to the frontend, and finally, the frontend displays the result to the user.
+
+K8S :
+
+First, a user accesses our application through a web browser using HTTPS. DNS resolves the application domain name to the AWS Application Load Balancer (ALB).
+
+The ALB receives the incoming request and forwards it to Kubernetes Ingress. Ingress manages the incoming traffic and routes the request to the appropriate frontend service.
+
+The frontend service forwards the request to the frontend Pod, where our frontend application runs. The frontend application displays the user interface.
+
+When a user performs an action, such as login, the frontend sends an API request to the backend service.
+
+The backend service routes the request to the appropriate microservice, such as Authentication, Product, or Order service, depending on the API request.
+
+The respective microservice processes the request and communicates with the database to retrieve or update the required information.
+
+After processing the request, the database returns the required data to the backend microservice. The backend sends the response back to the frontend, and finally, the frontend displays the result to the user.
