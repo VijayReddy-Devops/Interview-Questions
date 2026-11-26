@@ -15,9 +15,9 @@ The ALB receives the incoming request and forwards it to Kubernetes Ingress. Ing
 
 The frontend service forwards the request to the frontend Pod, where our frontend application runs. The frontend application displays the user interface.
 
-When a user performs an action, such as login, the frontend sends an API request to the backend service.
+When a user performs an action, such as login, the frontend sends a request to the Application Load Balancer (ALB). The ALB distributes the incoming requests to the appropriate backend target group
 
-The backend service routes the request to the appropriate microservice, such as Authentication, Product, or Order service, depending on the API request.
+The backend service receives the request and routr it to the appropriate microservice, such as Authentication, Product, or Order service, depending on the API request.
 
 The respective microservice processes the request and communicates with the database to retrieve or update the required information.
 
