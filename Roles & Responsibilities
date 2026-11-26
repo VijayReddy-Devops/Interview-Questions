@@ -17,3 +17,16 @@ Apart from this, I handle production support, troubleshoot deployment issues, an
 I use Terraform to automate AWS infrastructure creation and Ansible to automate server configuration and software installation.
 "I use Trivy to scan Docker images for security vulnerabilities and OWASP Dependency-Check to identify vulnerabilities in application dependencies.
 
+Version : 02
+
+As a DevOps Engineer, my primary responsibility is to automate the application build, testing and deployment process.
+
+1. I design and maintain Jenkins CI/CD pipelines, integrate GitHub webhooks, and automate application build, testing and deployment processes.
+
+2. I containerize applications using Docker, build Docker images and push them to AWS ECR. I also deploy and manage applications using Kubernetes.
+
+3. I manage AWS cloud infrastructure using services like EC2, IAM, VPC, S3 and ECR. I use Terraform for infrastructure provisioning and Ansible for configuration management.
+
+4. I integrate SonarQube for code quality analysis and Trivy for vulnerability scanning. I use Prometheus and Grafana for application and infrastructure monitoring.
+
+5. I troubleshoot CI/CD pipeline failures, container issues, infrastructure problems and production deployment issues. I also coordinate with development and QA teams to ensure smooth application releases.
